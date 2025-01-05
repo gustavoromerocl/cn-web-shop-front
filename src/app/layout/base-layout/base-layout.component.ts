@@ -6,6 +6,7 @@ import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { selectUser } from '../../store/session/session.selectors';
 import { logout } from '../../store/session/session.reducer';
+import { MsalService } from '../../services/msal/msal.service';
 
 @Component({
   selector: 'app-base-layout',
@@ -16,12 +17,17 @@ import { logout } from '../../store/session/session.reducer';
 export class BaseLayoutComponent {
   user$: Observable<{ id: string; name?: string; role: string; email: string } | null>;
 
-  constructor(private store: Store, private router: Router) {
+  constructor(private store: Store, private router: Router, private msalService: MsalService) {
     this.user$ = this.store.select(selectUser);
   }
 
   logout() {
     this.store.dispatch(logout());
-    this.router.navigate(['/login']); // Redirige al login después del logout
+    this.router.navigate(['/home']);
+  }
+
+  login() {
+    console.log("Entrando al login")
+    this.msalService.login();
   }
 }

@@ -39,13 +39,13 @@
       </button>
 
       <!-- Lógica dinámica para Iniciar Sesión/Logout -->
-      <ng-container *ngIf="user$ | async as user; else login">
+      <ng-container *ngIf="user$ | async as user; else loginTemplate">
         <span class="navbar-text me-3"> Welcome, {{ user.name }}! </span>
         <button class="btn btn-outline-light" (click)="logout()">Logout</button>
       </ng-container>
 
-      <ng-template #login>
-        <button class="btn btn-outline-light" routerLink="/login">Login</button>
+      <ng-template #loginTemplate>
+        <button class="btn btn-outline-light" (click)="login()">Login</button>
       </ng-template>
     </div>
   </div>

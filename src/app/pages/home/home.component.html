@@ -1,0 +1,35 @@
+<div class="search-bar mb-4">
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Search products"
+    [(ngModel)]="searchKeyword"
+    (keyup.enter)="searchProducts()"
+  />
+  <button class="btn btn-success mt-2" (click)="searchProducts()">
+    Search
+  </button>
+</div>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <div *ngFor="let product of products$ | async" class="col">
+    <div class="card h-100">
+      <img [src]="product.imageUrl" class="card-img-top" [alt]="product.name" />
+      <div class="card-body">
+        <h5 class="card-title">{{ product.name }}</h5>
+        <p class="card-text">
+          <strong>Category:</strong> {{ product.category }}
+        </p>
+        <p class="card-text"><strong>Stock:</strong> {{ product.stock }}</p>
+        <p class="card-text">
+          <strong>Price:</strong> {{ product.price | currency }}
+        </p>
+      </div>
+      <div class="card-footer text-muted">
+        <button class="btn btn-success w-100" (click)="addToCart(product)">
+          Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

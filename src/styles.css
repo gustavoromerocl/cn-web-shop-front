@@ -1,0 +1,45 @@
+.toast-success {
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #4caf50 !important; /* Verde para éxito */
+  color: #fff !important;
+}
+
+.toast-error {
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #f44336 !important; /* Rojo para errores */
+  color: #fff !important;
+}
+
+.toast-info {
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #2196f3 !important; /* Azul para información */
+  color: #fff !important;
+}
+
+.toast-warning {
+  padding: 16px;
+  border-radius: 8px;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: #ff9800 !important; /* Naranja para advertencias */
+  color: #fff !important;
+}
+
+/* Ajustar la posición del toastr */
+.toast-top-right {
+  top: 20px !important;
+  right: 20px !important;
+}
+
+.toast-title {
+  font-weight: bold;
+}

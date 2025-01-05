@@ -37,8 +37,7 @@ export class MsalService {
         email: account.username, 
         role: 'ROLE_USER' //Establecer cuando se implemente en MS AD
       }}));
-
-      // this.router.navigate(['/home']);
+      return true;
     })
     .catch(error => {
       console.error('Error al iniciar sesión:', error);

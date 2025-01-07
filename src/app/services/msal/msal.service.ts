@@ -29,8 +29,8 @@ export class MsalService {
       prompt: 'select_account' // Fuerza al usuario a seleccionar una cuenta
     })
     .then(response => {
-      const { account, accessToken } = response;
-      localStorage.setItem('token', accessToken);
+      const { account, idToken } = response;
+      localStorage.setItem('token', idToken);
       this.store.dispatch(login({ user: { 
         id: account.localAccountId, 
         name: account.name, 

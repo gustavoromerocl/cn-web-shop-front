@@ -31,7 +31,7 @@ export interface PaginatedResponse<T> {
   providedIn: 'root',
 })
 export class ProductService {
-  private readonly apiUrl = 'http://localhost:8080/api/products'; // Cambia esta URL según tu backend
+  private readonly apiUrl = 'http://localhost:8080/api/products';
 
   constructor(private http: HttpClient) {}
 

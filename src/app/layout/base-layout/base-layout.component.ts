@@ -23,6 +23,7 @@ export class BaseLayoutComponent {
 
   logout() {
     this.store.dispatch(logout());
+    localStorage.removeItem('token');
     this.router.navigate(['/home']);
   }
 

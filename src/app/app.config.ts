@@ -7,14 +7,18 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { sessionReducer } from './store/session/session.reducer';
 import { productsReducer } from './store/products/product.reducer';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import { provideHttpClient, withInterceptors, withInterceptorsFromDi } from '@angular/common/http';
 import { ProductEffects } from './store/products/product.effects';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import { authInterceptor } from './interceptors/auth.interceptor';
 
 console.log('Registering ProductEffects:', ProductEffects);
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideHttpClient(
+      withInterceptors([authInterceptor]), // Interceptor funcional
+    ),
     importProvidersFrom(
       BrowserAnimationsModule, // Requerido para animaciones
       ToastrModule.forRoot({
@@ -27,7 +31,6 @@ export const appConfig: ApplicationConfig = {
       })
 
     ),
-    provideHttpClient(withInterceptorsFromDi()),
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore({
